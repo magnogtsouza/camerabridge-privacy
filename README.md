@@ -12,7 +12,7 @@ Consultas de atualização de firmware, quando solicitadas ou habilitadas, acess
 
 ## Cadastro voluntário para testes
 
-Na distribuição pelo Drive, o usuário pode informar voluntariamente o e-mail da conta que usa na Google Play para pedir participação nos testes. Enviamos esse e-mail por HTTPS à API do CameraBridge e armazenamos o endereço, a data do cadastro e o status de inclusão na lista de testadores. Um envio repetido consulta o cadastro existente e informa seu status.
+Na distribuição pelo Drive, o usuário pode informar voluntariamente o e-mail da conta que usa na Google Play para pedir participação nos testes. Enviamos esse e-mail por HTTPS à API do CameraBridge e armazenamos temporariamente o endereço, seu hash, a data do cadastro e o status de inclusão na lista de testadores. Enquanto a inclusão está pendente, conservamos o e-mail para permitir adicioná-lo à lista. Após a confirmação de inclusão na Google Play, apagamos o endereço em texto e mantemos somente seu SHA-256, status e datas. Nas consultas seguintes, normalizamos o e-mail informado (espaços externos removidos e letras minúsculas), calculamos o SHA-256 e verificamos tanto cadastros pendentes pelo endereço quanto registros pelo hash, sem voltar a guardar o endereço de quem já foi incluído. O hash permite correlação e tentativas de reconhecimento de endereços conhecidos; é pseudonimização, não anonimato garantido.
 
 O e-mail serve para administrar o programa de testes e, quando o responsável efetivar a inclusão, poderá ser informado ao Google Play. Cadastrar-se no aplicativo não significa inclusão automática na Play Store. O link de teste depende da liberação da versão e da autorização da conta pelo Google Play. Não associamos a tabela de e-mails aos relatórios de dispositivos.
 
@@ -40,7 +40,7 @@ O cadastro e os relatórios são enviados por HTTPS para a API do CameraBridge e
 
 O endereço IP é necessariamente processado na conexão e pode ser usado temporariamente em memória para limitar abusos. Não o incluímos nas tabelas de diagnóstico/cadastro. Os endpoints do CameraBridge não registram corpos das requisições nem mantêm log de acesso HTTP próprio contendo esses dados. Falhas operacionais graves da infraestrutura podem gerar registros técnicos separados.
 
-Os relatórios de diagnóstico são conservados por até 30 dias, com limpeza periódica diária; a execução dessa limpeza pode acrescentar até um dia ao prazo. Os cadastros de e-mail são conservados enquanto necessários à administração dos testes, até solicitação de exclusão ou encerramento do programa. Não prometemos disponibilidade permanente do serviço.
+Os relatórios de diagnóstico são conservados por até 30 dias, com limpeza periódica diária; a execução dessa limpeza pode acrescentar até um dia ao prazo. Todos os registros da tabela de testadores, inclusive e-mails pendentes e hashes, serão apagados 30 dias após o lançamento público na Play Store, ou quando o projeto for descontinuado, o que ocorrer primeiro. O teste interno não inicia esse prazo. O responsável registra a data do lançamento público ou a descontinuação no servidor. Após o encerramento, o cadastro e as consultas de testadores ficam indisponíveis e não recriam registros; a limpeza também roda periodicamente, em até uma hora, e na inicialização. A exclusão nesta API não remove a lista administrada pelo Google Play; o Google tem sua própria política de retenção. Não prometemos disponibilidade permanente do serviço.
 
 ## Controle e exclusão
 
@@ -51,3 +51,4 @@ Excluir uma mídia local apaga seus auxiliares locais conforme a função do app
 ## Alterações
 
 Esta política será atualizada quando o tratamento de dados mudar. A versão vigente ficará disponível no repositório público de privacidade e no endereço HTTPS de privacidade do CameraBridge. Mudanças não autorizam coletar dados adicionais sem a informação e o consentimento aplicáveis no aplicativo.
+
