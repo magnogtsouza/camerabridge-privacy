@@ -8,6 +8,12 @@ O CameraBridge é mantido por Magno Souza / Magnuvo Software. Contato para dúvi
 
 O aplicativo usa Bluetooth e Wi-Fi para se comunicar com câmeras e importar arquivos para o telefone. As permissões de dispositivos próximos, rede, notificações e armazenamento, quando necessárias, servem a essas funções. Vídeos, fotos, áudio, GPS, força G e outros sensores gravados nas mídias são processados localmente. Essas mídias e seus dados de localização não são enviados à API de diagnósticos. O aplicativo não exige conta para importar ou visualizar mídias e não inclui anúncios ou ferramentas de publicidade.
 
+O desenvolvimento tem como foco câmeras HERO5 ou mais novas. Modelos anteriores estão fora do escopo de suporte. A lista de modelos distingue funções testadas em hardware, integração ainda não testada e ausência de suporte; a existência de documentação de uma câmera não garante seu funcionamento no aplicativo.
+
+As galerias de mídias na câmera e de arquivos já importados são separadas. Os originais são preservados sem recompressão; a exportação H.264 gera uma cópia local e pode incorporar recorte e mostradores dos sensores. Dados auxiliares de GPS, sensores, miniaturas, LRV/THM e WAV associados podem ficar no armazenamento privado do aplicativo. A exclusão de um vídeo pelo app também remove os auxiliares locais associados; a verificação na abertura limpa auxiliares sem vídeo correspondente. Transferências e exportações iniciadas pelo usuário podem continuar em segundo plano com uma notificação de progresso, respeitando as limitações do Android.
+
+As credenciais Wi-Fi obtidas da câmera ou informadas pelo usuário são usadas durante a conexão; o CameraBridge não as inclui no catálogo nem nos relatórios. Ao compartilhar ou arrastar uma mídia baixada para outro aplicativo, o usuário entrega esse arquivo ao destino escolhido, que passa a tratá-lo conforme sua própria política. O CameraBridge não envia o arquivo à sua API para realizar esse compartilhamento.
+
 Consultas de atualização de firmware, quando solicitadas ou habilitadas, acessam o site oficial da GoPro usando o modelo da câmera. O botão de contato abre o Instagram em um aplicativo ou navegador externo. Esses serviços têm suas próprias políticas de privacidade.
 
 ## Cadastro voluntário para testes
@@ -25,12 +31,15 @@ A opção de diagnósticos vem ativada na primeira abertura, com um aviso destac
 Os relatórios podem conter:
 
 - Versão do aplicativo, canal de distribuição, modelo do smartphone e versão do Android.
+- Identificador aleatório de cada relatório, usado para distinguir envios e evitar a duplicação da mesma requisição.
 - Modelo da câmera, quando identificado.
 - Identificador pseudonimizado do smartphone, derivado de um identificador restrito ao contexto do aplicativo; não lemos IMEI, número de telefone ou serial físico protegido do Android.
 - Identificador pseudonimizado derivado do serial da câmera; o serial em texto não é enviado nesse campo.
 - Horários dos eventos, etapas da conexão, códigos de resposta/erro, tipos de exceção e caminhos técnicos previamente permitidos. Os nomes dos arquivos são removidos desses caminhos.
 
 Esses identificadores permitem reconhecer relatórios do mesmo dispositivo no contexto do app. Portanto, os dados são **pseudonimizados e não devem ser descritos como totalmente anônimos**. Reinstalar, mudar de pacote ou de assinatura pode alterar a identificação do telefone. Não existe identificação garantida entre todas as instalações e canais.
+
+O identificador do relatório é diferente do identificador do smartphone: um telefone pode enviar vários relatórios. Não usamos esses identificadores para descobrir o nome ou a conta Google da pessoa, nem os vinculamos ao e-mail do cadastro de testadores. O canal Play/Drive/Development descreve a compilação executada, não comprova por qual loja ou link o arquivo foi instalado. A API atual não coleta o nome do instalador. Execuções em emuladores ou testes automatizados também podem gerar relatórios, quando a opção for confirmada nesse ambiente; um relatório, por si só, não comprova a presença de um usuário humano ou de uma câmera física. Antes de identificar a câmera na tentativa de conexão, os campos referentes à câmera podem ficar vazios.
 
 Não incluímos nos relatórios vídeos, fotos, áudio, trilhas GPS, valores dos sensores das mídias, nomes de arquivos, conteúdo de mensagens de exceção, senha ou nome da rede Wi-Fi, credenciais Bluetooth, e-mail do cadastro ou identificadores de publicidade. O esquema do servidor aceita apenas os campos técnicos previstos; esses relatórios não são uma cópia irrestrita dos logs do telefone.
 
