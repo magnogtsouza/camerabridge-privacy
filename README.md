@@ -20,7 +20,7 @@ A versão destinada à Play Store não inclui o formulário de cadastro. As cóp
 
 ## Diagnósticos opcionais de compatibilidade
 
-O envio fica desativado por padrão. Somente depois de habilitá-lo, o aplicativo pode enviar relatórios técnicos de sucesso e falha da comunicação, para entendermos quais modelos funcionam e corrigirmos problemas. O usuário também pode solicitar o envio pela área de diagnósticos.
+A opção de diagnósticos vem ativada na primeira abertura, com um aviso destacado que permite manter o envio ativado ou desativá-lo. Nenhum relatório é transmitido antes dessa escolha. Uma escolha anterior é respeitada. Você pode desativar a qualquer momento em Privacidade e diagnósticos, interrompendo novos envios, e pode solicitar a exclusão dos relatórios desta instalação. Quando autorizado, o aplicativo pode enviar relatórios técnicos de sucesso e falha da comunicação, para entendermos quais modelos funcionam e corrigirmos problemas. O usuário também pode solicitar o envio pela área de diagnósticos.
 
 Os relatórios podem conter:
 
@@ -51,4 +51,3 @@ Excluir uma mídia local apaga seus auxiliares locais conforme a função do app
 ## Alterações
 
 Esta política será atualizada quando o tratamento de dados mudar. A versão vigente ficará disponível no repositório público de privacidade e no endereço HTTPS de privacidade do CameraBridge. Mudanças não autorizam coletar dados adicionais sem a informação e o consentimento aplicáveis no aplicativo.
-
