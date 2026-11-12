@@ -1,6 +1,6 @@
 # Política de privacidade — CameraBridge
 
-Última atualização: 11 de novembro de 2026.
+Última atualização: 12 de novembro de 2026.
 
 O CameraBridge é mantido por Magno Souza / Magnuvo Software. Contato para dúvidas e solicitações sobre dados: [@the.magno no Instagram](https://www.instagram.com/the.magno/). Esta política se aplica ao aplicativo Android, ao cadastro de testadores e à API de diagnósticos do CameraBridge.
 
@@ -26,7 +26,7 @@ A versão destinada à Play Store não inclui o formulário de cadastro. As cóp
 
 ## Diagnósticos opcionais de compatibilidade
 
-A opção de diagnósticos vem ativada na primeira abertura, com um aviso destacado que permite manter o envio ativado ou desativá-lo. Nenhum relatório é transmitido antes dessa escolha. Uma escolha anterior é respeitada. Você pode desativar a qualquer momento em Privacidade e diagnósticos, interrompendo novos envios, e pode solicitar a exclusão dos relatórios desta instalação. Quando autorizado, o aplicativo pode enviar relatórios técnicos de sucesso e falha da comunicação, para entendermos quais modelos funcionam e corrigirmos problemas. O usuário também pode solicitar o envio pela área de diagnósticos.
+Nas novas instalações desta versão, os diagnósticos opcionais ficam desligados e não há aviso ao abrir o aplicativo. Você pode ativá-los em Privacidade e diagnósticos, onde são explicados os dados, a finalidade e os controles antes de confirmar a opção. Uma escolha feita anteriormente é respeitada: uma atualização não ativa quem havia desativado, nem desativa automaticamente quem já havia autorizado. Versões anteriores podiam apresentar uma escolha na primeira abertura. Nenhum relatório é transmitido em uma instalação nova antes da ativação pelo usuário. Você pode desativar a qualquer momento em Privacidade e diagnósticos, interrompendo novos envios, e pode solicitar a exclusão dos relatórios desta instalação. Quando autorizado, o aplicativo pode enviar relatórios técnicos de sucesso e falha da comunicação, para entendermos quais modelos funcionam e corrigirmos problemas. O usuário também pode solicitar o envio pela área de diagnósticos.
 
 Quando autorizado, o aplicativo guarda uma fila privada de relatórios ainda não confirmados pelo servidor, inclusive sem internet. A fila é limitada a 256 relatórios e 2 MiB; registros mais antigos podem ser descartados para não ocupar espaço indefinidamente. Registros com eventos fora do prazo de 30 dias são descartados quando a fila é processada. Os envios usam lotes gzip menores que 500.000 bytes, com tentativa a cada 45 segundos enquanto o processo está ativo. Em segundo plano, um trabalho de rede do Android pode tentar novamente sem notificação; o sistema pode adiar ou suspender essa execução. Não garantimos o recebimento de todos os registros ou um intervalo exato quando o app estiver suspenso ou encerrado. Falhas de envio permanecem silenciosas, sem avisos de erro. Ao desativar os diagnósticos, cancelamos os envios e descartamos a fila local; relatórios anteriores à nova autorização não voltam a ser enviados. Isso não apaga os relatórios já recebidos pelo servidor.
 
