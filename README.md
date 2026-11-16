@@ -1,6 +1,6 @@
 # Política de privacidade — CameraBridge
 
-Última atualização: 12 de novembro de 2026.
+Última atualização: 15 de novembro de 2026.
 
 O CameraBridge é mantido por Magno Souza / Magnuvo Software. Contato para dúvidas e solicitações sobre dados: [@the.magno no Instagram](https://www.instagram.com/the.magno/). Esta política se aplica ao aplicativo Android, ao cadastro de testadores e à API de diagnósticos do CameraBridge.
 
@@ -26,7 +26,11 @@ A versão destinada à Play Store não inclui o formulário de cadastro. As cóp
 
 ## Diagnósticos opcionais de compatibilidade
 
-Nas novas instalações desta versão, os diagnósticos opcionais ficam desligados e não há aviso ao abrir o aplicativo. Você pode ativá-los em Privacidade e diagnósticos, onde são explicados os dados, a finalidade e os controles antes de confirmar a opção. Uma escolha feita anteriormente é respeitada: uma atualização não ativa quem havia desativado, nem desativa automaticamente quem já havia autorizado. Versões anteriores podiam apresentar uma escolha na primeira abertura. Nenhum relatório é transmitido em uma instalação nova antes da ativação pelo usuário. Você pode desativar a qualquer momento em Privacidade e diagnósticos, interrompendo novos envios, e pode solicitar a exclusão dos relatórios desta instalação. Quando autorizado, o aplicativo pode enviar relatórios técnicos de sucesso e falha da comunicação, para entendermos quais modelos funcionam e corrigirmos problemas. O usuário também pode solicitar o envio pela área de diagnósticos.
+Nas compilações de testes com diagnósticos de teste ativados, o envio começa habilitado. A primeira abertura da atualização que introduz esse modo habilita o envio uma única vez, inclusive em instalações antigas que estavam com a opção desligada. Não há diálogo inicial. A tela Privacidade e diagnósticos informa esse comportamento e permite desativá-lo; a escolha feita depois dessa migração é preservada nas próximas aberturas e atualizações. Essa mudança não recupera nem envia automaticamente eventos anteriores à migração. Versões anteriores, como a 0.2.3, começavam com o envio desligado em instalações novas.
+
+O modo de testes possui uma preferência separada da escolha usada nas compilações sem esse modo. Nestas, instalações novas começam sem envio e uma autorização anterior deste modo é respeitada; a ativação automática do teste não concede autorização para elas. Antes do lançamento definitivo, o fluxo de informação, consentimento, política e declarações da loja será revisto. A descrição de uma compilação de testes não é uma garantia de conformidade para publicação em produção.
+
+Você pode desativar os diagnósticos a qualquer momento em Privacidade e diagnósticos, interrompendo novos envios, ou solicitar a exclusão dos relatórios desta instalação. Quando habilitado, o aplicativo envia relatórios técnicos de sucesso e falha da comunicação para identificar problemas de compatibilidade. O usuário também pode solicitar o envio nessa área.
 
 Quando autorizado, o aplicativo guarda uma fila privada de relatórios ainda não confirmados pelo servidor, inclusive sem internet. A fila é limitada a 256 relatórios e 2 MiB; registros mais antigos podem ser descartados para não ocupar espaço indefinidamente. Registros com eventos fora do prazo de 30 dias são descartados quando a fila é processada. Os envios usam lotes gzip menores que 500.000 bytes, com tentativa a cada 45 segundos enquanto o processo está ativo. Em segundo plano, um trabalho de rede do Android pode tentar novamente sem notificação; o sistema pode adiar ou suspender essa execução. Não garantimos o recebimento de todos os registros ou um intervalo exato quando o app estiver suspenso ou encerrado. Falhas de envio permanecem silenciosas, sem avisos de erro. Ao desativar os diagnósticos, cancelamos os envios e descartamos a fila local; relatórios anteriores à nova autorização não voltam a ser enviados. Isso não apaga os relatórios já recebidos pelo servidor.
 
@@ -38,6 +42,7 @@ Os relatórios podem conter:
 - Identificador pseudonimizado do smartphone, derivado de um identificador restrito ao contexto do aplicativo; não lemos IMEI, número de telefone ou serial físico protegido do Android.
 - Identificador pseudonimizado derivado do serial da câmera; o serial em texto não é enviado nesse campo.
 - Horários dos eventos, etapas da conexão, códigos de resposta/erro, tipos de exceção e caminhos técnicos previamente permitidos. Os nomes dos arquivos são removidos desses caminhos.
+- Resultado da comparação local entre credenciais recebidas por BLE e digitadas: iguais, nome de rede diferente, senha diferente, ambos diferentes ou comparação indisponível. SSID, senha e seus hashes não são incluídos. Uma diferença não comprova uma senha incorreta.
 
 Esses identificadores permitem reconhecer relatórios do mesmo dispositivo no contexto do app. Portanto, os dados são **pseudonimizados e não devem ser descritos como totalmente anônimos**. Reinstalar, mudar de pacote ou de assinatura pode alterar a identificação do telefone. Não existe identificação garantida entre todas as instalações e canais.
 
@@ -62,4 +67,3 @@ Excluir uma mídia local apaga seus auxiliares locais conforme a função do app
 ## Alterações
 
 Esta política será atualizada quando o tratamento de dados mudar. A versão vigente ficará disponível no repositório público de privacidade e no endereço HTTPS de privacidade do CameraBridge. Mudanças não autorizam coletar dados adicionais sem a informação e o consentimento aplicáveis no aplicativo.
-
