@@ -1,8 +1,8 @@
 # Política de privacidade — CameraBridge
 
-Última atualização: 15 de novembro de 2026.
+Última atualização: 16 de novembro de 2026.
 
-O CameraBridge é mantido por Magno Souza / Magnuvo Software. Contato para dúvidas e solicitações sobre dados: [@the.magno no Instagram](https://www.instagram.com/the.magno/). Esta política se aplica ao aplicativo Android, ao cadastro de testadores e à API de diagnósticos do CameraBridge.
+O CameraBridge é mantido por Magno Souza / Magnuvo Software. Contato para dúvidas e solicitações sobre dados: [@the.magno no Instagram](https://www.instagram.com/the.magno/). Esta política se aplica ao aplicativo Android, ao cadastro de testadores, à consulta de versões e à API de diagnósticos do CameraBridge.
 
 ## Câmera, arquivos e funcionamento local
 
@@ -15,6 +15,12 @@ As galerias de mídias na câmera e de arquivos já importados são separadas. O
 As credenciais Wi-Fi obtidas da câmera ou informadas pelo usuário são usadas durante a conexão; o CameraBridge não as inclui no catálogo nem nos relatórios. Ao compartilhar ou arrastar uma mídia baixada para outro aplicativo, o usuário entrega esse arquivo ao destino escolhido, que passa a tratá-lo conforme sua própria política. O CameraBridge não envia o arquivo à sua API para realizar esse compartilhamento.
 
 Consultas de atualização de firmware, quando solicitadas ou habilitadas, acessam o site oficial da GoPro usando o modelo da câmera. O botão de contato abre o Instagram em um aplicativo ou navegador externo. Esses serviços têm suas próprias políticas de privacidade.
+
+## Consulta de versões e links de atualização
+
+As distribuições Drive e Play consultam por HTTPS a API do CameraBridge ao abrir ou retornar ao app, com intervalo mínimo de cinco minutos no processo, para conhecer a versão disponível de seu canal. Essa consulta informa somente o canal da compilação (Drive ou Play); não envia identificador do dispositivo, modelo do telefone/câmera, mídias, GPS, sensores, e-mail ou relatórios de diagnóstico. O código da versão instalada é comparado localmente com a resposta. A consulta não cria um registro no banco de diagnósticos ou testadores e funciona independentemente da opção de diagnósticos. O endereço IP é processado pela conexão e pelas proteções temporárias descritas abaixo.
+
+Quando há versão mais nova, uma faixa permite abrir a pasta do Drive ou a página do próprio app na Google Play, conforme o canal. Esses destinos pertencem ao Google e seguem suas próprias políticas. O app não baixa nem instala a atualização automaticamente. A ausência de internet ou uma resposta inválida não gera mensagem de erro nem bloqueio; o aviso de versão desatualizada também não bloqueia o uso. A validade fixa das cópias de testes continua sendo uma regra separada, descrita abaixo.
 
 ## Cadastro voluntário para testes
 
