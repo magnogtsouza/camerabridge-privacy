@@ -28,7 +28,7 @@ Na distribuição pelo Drive, o usuário pode informar voluntariamente o e-mail 
 
 O e-mail serve para administrar o programa de testes e, quando o responsável efetivar a inclusão, poderá ser informado ao Google Play. Cadastrar-se no aplicativo não significa inclusão automática na Play Store. O link de teste depende da liberação da versão e da autorização da conta pelo Google Play. Não associamos a tabela de e-mails aos relatórios de dispositivos.
 
-A versão destinada à Play Store não inclui o formulário de cadastro. As cópias de testes têm validade fixa desde sua geração: 14 dias na distribuição Play e 30 dias na distribuição Drive. O aviso de expiração orienta a atualização; na cópia Drive, permite acessar o cadastro de testadores. A validade não obriga a aceitar diagnósticos.
+A versão destinada à Play Store não inclui o formulário de cadastro. As cópias de testes têm validade fixa desde sua geração: 14 dias na distribuição Play e 15 dias na distribuição Drive. O aviso de expiração orienta a atualização; na cópia Drive, permite acessar o cadastro de testadores. A validade não obriga a aceitar diagnósticos.
 
 ## Diagnósticos opcionais de compatibilidade
 
