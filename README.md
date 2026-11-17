@@ -1,6 +1,6 @@
 # Política de privacidade — CameraBridge
 
-Última atualização: 16 de novembro de 2026.
+Última atualização: 17 de novembro de 2026.
 
 O CameraBridge é mantido por Magno Souza / Magnuvo Software. Contato para dúvidas e solicitações sobre dados: [@the.magno no Instagram](https://www.instagram.com/the.magno/). Esta política se aplica ao aplicativo Android, ao cadastro de testadores, à consulta de versões e à API de diagnósticos do CameraBridge.
 
@@ -15,6 +15,24 @@ As galerias de mídias na câmera e de arquivos já importados são separadas. O
 As credenciais Wi-Fi obtidas da câmera ou informadas pelo usuário são usadas durante a conexão; o CameraBridge não as inclui no catálogo nem nos relatórios. Ao compartilhar ou arrastar uma mídia baixada para outro aplicativo, o usuário entrega esse arquivo ao destino escolhido, que passa a tratá-lo conforme sua própria política. O CameraBridge não envia o arquivo à sua API para realizar esse compartilhamento.
 
 Consultas de atualização de firmware, quando solicitadas ou habilitadas, acessam o site oficial da GoPro usando o modelo da câmera. O botão de contato abre o Instagram em um aplicativo ou navegador externo. Esses serviços têm suas próprias políticas de privacidade.
+
+## Registros locais de GPS e sensores do smartphone
+
+Em **Mais opções → Sensores do telefone**, você pode iniciar e pausar voluntariamente a captura de localização precisa, velocidade e altitude disponíveis no GPS, aceleração, giroscópio, gravidade e temperatura ambiente quando existir um sensor real. Antes de iniciar, o app explica essa captura e solicita as permissões necessárias de localização precisa e notificações. O recurso não começa ao abrir o app e não depende da opção de diagnósticos.
+
+Um serviço Android de localização mantém uma notificação privada persistente com a ação **Pausar**. A captura iniciada por você pode continuar com outro aplicativo aberto ou com a tela apagada; o app não solicita a permissão de localização em segundo plano. O Android pode interromper o serviço. Uma retomada permitida pelo sistema respeita a intenção de registro ainda ativa e mantém lacunas reais; não inicia a captura após forçar a parada do app. Ausência de GPS ou de um sensor não é substituída por valores fictícios, nem por temperatura da bateria ou da câmera.
+
+Esses registros podem revelar **localização precisa, trajetos, horários e movimentos do telefone**. Ficam no armazenamento privado do aplicativo, em partes de até 30 minutos, com horários, canais e contagens para consulta local. Não são enviados à API, incluídos nos relatórios de diagnóstico nem vinculados à tabela de testadores. A ativação ou desativação dos diagnósticos não inicia, pausa ou compartilha esses registros.
+
+Cada card do player pode usar metadados do vídeo ou registros do smartphone, inclusive registros importados de outro aplicativo. O alinhamento usa a data e a hora da gravação; você pode ajustar essa associação localmente. A escolha não altera o vídeo original. Uma cópia H.264 pode desenhar os mostradores escolhidos e expor visualmente o trajeto ou outros valores: verifique os cards antes de compartilhar essa cópia. Não é acrescentada uma nova trilha de telemetria ao MP4 original.
+
+### Importar e exportar registros
+
+O formato `.cbridgetelemetry` permite importar ou exportar registros por uma ação sua no seletor de documentos do Android, sem permissão ampla de armazenamento. A importação valida e acrescenta registros, preservando os existentes; o hash SHA-256 dos bytes permite reconhecer o mesmo arquivo já importado. Esse hash fica local e não comprova autoria ou autenticidade dos dados.
+
+Antes de exportar, o app avisa que o arquivo pode conter localização precisa, trajetos e horários. Você escolhe o destino e concede acesso ao documento selecionado. Caso escolha um provedor de nuvem ou compartilhe depois o arquivo, o destino passa a tratá-lo conforme sua própria política. O CameraBridge não envia automaticamente esses arquivos à sua API. Uma exportação interrompida pode deixar uma cópia externa incompleta; confira o resultado antes de usá-lo ou compartilhá-lo.
+
+Os registros são independentes dos vídeos e podem servir a mais de uma mídia. Excluir um vídeo remove seus auxiliares associados, mas não exclui automaticamente esses registros reutilizáveis. A lista de sensores permite excluir um registro mediante confirmação; isso não apaga os vídeos. Limpar os dados ou desinstalar o app remove a biblioteca privada. Cópias já exportadas ficam no destino escolhido e precisam ser excluídas separadamente, conforme os controles desse destino.
 
 ## Consulta de versões e links de atualização
 
@@ -54,7 +72,7 @@ Esses identificadores permitem reconhecer relatórios do mesmo dispositivo no co
 
 O identificador do relatório é diferente do identificador do smartphone: um telefone pode enviar vários relatórios. Não usamos esses identificadores para descobrir o nome ou a conta Google da pessoa, nem os vinculamos ao e-mail do cadastro de testadores. O canal Play/Drive/Development descreve a compilação executada, não comprova por qual loja ou link o arquivo foi instalado. A API atual não coleta o nome do instalador. Execuções em emuladores ou testes automatizados também podem gerar relatórios, quando a opção for confirmada nesse ambiente; um relatório, por si só, não comprova a presença de um usuário humano ou de uma câmera física. Antes de identificar a câmera na tentativa de conexão, os campos referentes à câmera podem ficar vazios.
 
-Não incluímos nos relatórios vídeos, fotos, áudio, trilhas GPS, valores dos sensores das mídias, nomes de arquivos, conteúdo de mensagens de exceção, senha ou nome da rede Wi-Fi, credenciais Bluetooth, e-mail do cadastro ou identificadores de publicidade. O esquema do servidor aceita apenas os campos técnicos previstos; esses relatórios não são uma cópia irrestrita dos logs do telefone.
+Não incluímos nos relatórios vídeos, fotos, áudio, trilhas GPS, valores dos sensores das mídias, registros GPS/sensores capturados ou importados pelo smartphone, nomes de arquivos, conteúdo de mensagens de exceção, senha ou nome da rede Wi-Fi, credenciais Bluetooth, e-mail do cadastro ou identificadores de publicidade. O esquema do servidor aceita apenas os campos técnicos previstos; esses relatórios não são uma cópia irrestrita dos logs do telefone. A nova função local de sensores não altera os dados enviados pelos diagnósticos.
 
 ## Servidor, proteção e retenção
 
@@ -69,6 +87,8 @@ Os relatórios de diagnóstico são conservados por até 30 dias, com limpeza na
 Você pode desativar os diagnósticos nas configurações do aplicativo para interromper novos envios e descartar a fila local. Isso não apaga automaticamente relatórios já enviados: use a opção de excluir os relatórios deste dispositivo, enquanto o identificador da instalação ainda estiver disponível. Sem essa instalação, ou para solicitar acesso, correção ou exclusão do cadastro de e-mail, entre em contato com [@the.magno](https://www.instagram.com/the.magno/), informando a solicitação. Podemos pedir informações proporcionais para confirmar que o pedido se refere aos seus dados.
 
 Excluir uma mídia local apaga seus auxiliares locais conforme a função do app; isso não equivale à exclusão dos relatórios do servidor. A exclusão de mídia da câmera é uma ação separada e exige confirmação no aplicativo.
+
+Você pode pausar a captura de sensores pela tela própria ou pela notificação, revogar a localização nas configurações do Android e excluir os registros privados pela lista do app. Esses controles são separados da exclusão de diagnósticos do servidor e das cópias de registros que você tenha exportado.
 
 ## Alterações
 
