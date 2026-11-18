@@ -34,6 +34,18 @@ Antes de exportar, o app avisa que o arquivo pode conter localização precisa, 
 
 Os registros são independentes dos vídeos e podem servir a mais de uma mídia. Excluir um vídeo remove seus auxiliares associados, mas não exclui automaticamente esses registros reutilizáveis. A lista de sensores permite excluir um registro mediante confirmação; isso não apaga os vídeos. Limpar os dados ou desinstalar o app remove a biblioteca privada. Cópias já exportadas ficam no destino escolhido e precisam ser excluídas separadamente, conforme os controles desse destino.
 
+## Imagens de satélite opcionais no card de trajeto
+
+Na configuração de cada variação do card de trajeto, **Imagens de satélite (INPE/Sentinel)** começa desativado. Ao marcar esse checkbox, você permite que o app carregue pela internet imagens públicas do INPE/Brazil Data Cube para a área mostrada pelo card. A escolha é independente por variação e pode ser desmarcada a qualquer momento. Não depende da opção de diagnósticos nem inicia uma captura de localização no telefone.
+
+As consultas são feitas diretamente por HTTPS a `data.inpe.br`, com o identificador das imagens e os índices geográficos dos blocos solicitados (zoom, coluna e linha). O serviço e sua infraestrutura recebem o endereço IP da conexão e podem inferir a **área geográfica consultada** a partir desses índices. Isso pode revelar a região do trajeto; não deve ser descrito como navegação anônima. O app não inclui nessas requisições o vídeo, arquivos de telemetria, listas de pontos GPS individuais, horários da gravação, e-mail ou identificadores do telefone/câmera. Não envia essas consultas ou imagens à API de diagnósticos do CameraBridge. O processamento e a retenção feitos pelo INPE seguem as condições daquele serviço; o CameraBridge não controla seus registros de acesso.
+
+As imagens baixadas ficam em cache privado do app, limitado a **64 MiB**. O cache pode indicar áreas consultadas e é separado dos registros de GPS/sensores. Os blocos são reutilizados por até uma hora antes de uma tentativa de atualização; quando não há rede ou o serviço falha, blocos já disponíveis podem ser reaproveitados, ou o card mantém somente o trajeto. Não há garantia de imagens para todas as áreas ou de disponibilidade permanente. Desativar o checkbox interrompe o carregamento daquele card e impede novas consultas por ele; requisições já recebidas pelo serviço não podem ser recolhidas. Outros cards com satélite ativado continuam independentes. Desmarcar a opção não apaga imediatamente o cache, que pode ser removido pelo Android; limpar o cache/dados ou desinstalar o app também o remove.
+
+O mosaico desta implementação é fixado no período de **abril a junho de 2026**, com dados Sentinel-2 hospedados/processados pelo INPE. É uma composição de várias aquisições, sem garantia de ausência de nuvens, e não uma imagem ao vivo. O app exibe os créditos **INPE / Sentinel-2** e **Contains modified Copernicus Sentinel data 2026** abaixo do card quando as imagens são usadas. Uma cópia H.264 pode incorporar essas imagens e seus créditos junto ao trajeto; verifique o que fica visível antes de compartilhar o vídeo. As imagens e o traçado são preparados localmente para essa cópia, sem upload do vídeo.
+
+Arquivos de configuração de cards podem guardar a opção de satélite. Se um arquivo importado trouxer essa opção ativada, o app informa a consulta ao INPE e permite escolher **Importar com satélite** ou **Importar sem satélite** antes de adicionar os cards. A escolha sem satélite desativa essa opção somente nos cards recebidos e preserva as configurações dos cards existentes. Não se repete essa pergunta ao restaurar as próprias configurações salvas pelo app.
+
 ## Consulta de versões e links de atualização
 
 As distribuições Drive e Play consultam por HTTPS a API do CameraBridge ao abrir ou retornar ao app, com intervalo mínimo de cinco minutos no processo, para conhecer a versão disponível de seu canal. Essa consulta informa somente o canal da compilação (Drive ou Play); não envia identificador do dispositivo, modelo do telefone/câmera, mídias, GPS, sensores, e-mail ou relatórios de diagnóstico. O código da versão instalada é comparado localmente com a resposta. A consulta não cria um registro no banco de diagnósticos ou testadores e funciona independentemente da opção de diagnósticos. O endereço IP é processado pela conexão e pelas proteções temporárias descritas abaixo.
@@ -89,6 +101,8 @@ Você pode desativar os diagnósticos nas configurações do aplicativo para int
 Excluir uma mídia local apaga seus auxiliares locais conforme a função do app; isso não equivale à exclusão dos relatórios do servidor. A exclusão de mídia da câmera é uma ação separada e exige confirmação no aplicativo.
 
 Você pode pausar a captura de sensores pela tela própria ou pela notificação, revogar a localização nas configurações do Android e excluir os registros privados pela lista do app. Esses controles são separados da exclusão de diagnósticos do servidor e das cópias de registros que você tenha exportado.
+
+Para interromper novas consultas de imagens ao INPE, desmarque **Imagens de satélite (INPE/Sentinel)** em cada variação de trajeto que estiver usando o recurso. Isso não remove consultas já recebidas pelo serviço, cópias de vídeos já exportadas ou dados mantidos pelos aplicativos com os quais você as compartilhou.
 
 ## Alterações
 
